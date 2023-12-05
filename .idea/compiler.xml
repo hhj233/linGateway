@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="linGateway-Config-Nacos-Impl" />
+        <module name="linGateway-HttpServer" />
+        <module name="linGateway-Register-Center-Nacos-Impl" />
+        <module name="linGateway-Common" />
+        <module name="linGateway-Register-Center-Api" />
+        <module name="linGateway-Config-Center-Api" />
+        <module name="linGateway-Register-Center" />
+        <module name="linGateway-Core" />
+        <module name="linGateway-Dubbo" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
