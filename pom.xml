@@ -17,6 +17,7 @@
         <module>linGateway-Register-Center</module>
         <module>linGateway-Register-Center/linGateway-Register-Center-Api</module>
         <module>linGateway-Register-Center/linGateway-Register-Center-Nacos-Impl</module>
+        <module>linGateway-Client</module>
     </modules>
 
     <properties>

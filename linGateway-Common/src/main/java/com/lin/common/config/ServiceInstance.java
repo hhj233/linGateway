@@ -50,6 +50,11 @@ public class ServiceInstance implements Serializable {
      */
     protected boolean gray;
 
+    /**
+     * 	服务实例对应的版本号
+     */
+    protected String version;
+
     public ServiceInstance() {
         super();
     }
@@ -124,6 +129,14 @@ public class ServiceInstance implements Serializable {
 
     public void setGray(boolean gray) {
         this.gray = gray;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     @Override

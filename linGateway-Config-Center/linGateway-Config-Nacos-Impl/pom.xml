@@ -16,4 +16,22 @@
         <maven.compiler.target>19</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>lin.project</groupId>
+            <artifactId>linGateway-Config-Center-Api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>lin.project</groupId>
+            <artifactId>linGateway-Common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>2.0.4</version>
+        </dependency>
+    </dependencies>
+
 </project>
