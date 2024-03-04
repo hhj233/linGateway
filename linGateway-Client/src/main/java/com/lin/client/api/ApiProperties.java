@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author linzj
  */
 @Data
-@ConfigurationProperties(prefix = "lin")
+@ConfigurationProperties(prefix = "lin.gateway")
 public class ApiProperties {
     /**
      * 注册中心地址

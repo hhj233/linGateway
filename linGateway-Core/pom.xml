@@ -14,6 +14,8 @@
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -21,6 +23,38 @@
             <groupId>lin.project</groupId>
             <artifactId>linGateway-Common</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>lin.project</groupId>
+            <artifactId>linGateway-Config-Center-Api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>lin.project</groupId>
+            <artifactId>linGateway-Config-Nacos-Impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>lin.project</groupId>
+            <artifactId>linGateway-Register-Center-Api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>lin.project</groupId>
+            <artifactId>linGateway-Register-Center-Nacos-Impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--jwt-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.6.0</version>
+        </dependency>
+        <!-- 用于上报监控指标数据 -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>1.10.2</version>
         </dependency>
         <!-- 无锁队列做异步 -->
         <dependency>

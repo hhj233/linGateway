@@ -77,6 +77,18 @@ public class Rule implements Comparable<Rule>,Serializable {
         super();
     }
 
+    public Rule(String id, String name, String protocol, String serviceId, String prefix, List<String> paths,
+                Integer order, Set<FilterConfig> filterConfigs) {
+        this.id = id;
+        this.name = name;
+        this.protocol = protocol;
+        this.serviceId = serviceId;
+        this.prefix = prefix;
+        this.paths = paths;
+        this.order = order;
+        this.filterConfigs = filterConfigs;
+    }
+
     @Override
     public int compareTo(Rule rule) {
         int orderCompare = Integer.compare(this.order, rule.getOrder());
@@ -171,6 +183,42 @@ public class Rule implements Comparable<Rule>,Serializable {
         private String fallbackResponse;
     }
 
+    /**
+     * 向规则里添加过滤器
+     * @param filterConfig
+     * @return
+     */
+    public boolean addFilterConfig(FilterConfig filterConfig) {
+        return filterConfigs.add(filterConfig);
+    }
+
+    /**
+     * 通过指定的id获取过滤器
+     * @param id
+     * @return
+     */
+    public FilterConfig getFilterConfig(String id) {
+        for (FilterConfig filterConfig : filterConfigs) {
+            if(filterConfig.getId().equalsIgnoreCase(id)) {
+                return filterConfig;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 根据filterId判断当前的规则是否存在
+     * @param id
+     * @return
+     */
+    public boolean hashId(String id) {
+        for (FilterConfig filterConfig : filterConfigs) {
+            if (filterConfig.getId().equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {

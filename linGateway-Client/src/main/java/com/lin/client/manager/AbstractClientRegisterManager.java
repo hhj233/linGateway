@@ -3,7 +3,7 @@ package com.lin.client.manager;
 import com.lin.client.api.ApiProperties;
 import com.lin.common.config.ServiceDefinition;
 import com.lin.common.config.ServiceInstance;
-import com.lin.registerCenterApi.RegisterCenter;
+import com.lin.registerCenter.api.RegisterCenter;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 

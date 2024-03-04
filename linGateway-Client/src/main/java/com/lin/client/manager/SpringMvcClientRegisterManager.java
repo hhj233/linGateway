@@ -40,7 +40,7 @@ public class SpringMvcClientRegisterManager extends AbstractClientRegisterManage
     @Autowired
     private ServerProperties serverProperties;
     private Set<Object> set = new HashSet<>();
-    protected SpringMvcClientRegisterManager(ApiProperties apiProperties) {
+    public SpringMvcClientRegisterManager(ApiProperties apiProperties) {
         super(apiProperties);
     }
 
@@ -55,7 +55,7 @@ public class SpringMvcClientRegisterManager extends AbstractClientRegisterManage
         if (applicationEvent instanceof ApplicationStartedEvent) {
             try {
                 // 执行具体的springmvc项目注册
-
+                doRegisterSpringMvc();
             }catch (Exception e) {
                 log.error("doRegisterSpringMvc error", e);
                 throw new RuntimeException(e);

@@ -10,10 +10,11 @@ import lombok.Data;
 public class Config {
     private int port = 8088;
     private int prometheusPort = 18000;
-    private String applicationName = "api-gateway";
+    private String applicationName = "lin-gateway";
     private String registryAddress = "127.0.0.1:8848";
     private String env = "dev";
     // netty
+    private int eventLoopGroupBossNum = 1;
     private int eventLoopGroupWorkerNum = 1;
     private int maxContextLength = 64*1024*1024;
     // 默认单异步模式

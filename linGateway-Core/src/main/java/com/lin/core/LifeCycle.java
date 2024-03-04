@@ -17,5 +17,5 @@ public interface LifeCycle {
     /**
      * 关闭
      */
-    void shutdowm();
+    void shutdown();
 }

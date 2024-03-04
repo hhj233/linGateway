@@ -143,5 +143,13 @@ public class DynamicConfigManager {
         ruleMap.remove(ruleId);
     }
 
+    public Rule  getRuleByPath(String path){
+        return pathRuleMap.get(path);
+    }
+
+    public List<Rule>  getRuleByServiceId(String serviceId){
+        return serivceRuleMap.get(serviceId);
+    }
+
 
 }
