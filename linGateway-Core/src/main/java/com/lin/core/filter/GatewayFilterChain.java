@@ -18,7 +18,7 @@ public class GatewayFilterChain {
         return this;
     }
     public GatewayFilterChain addFilterList(List<Filter> filters) {
-        filters.addAll(filters);
+        this.filters.addAll(filters);
         return this;
     }
 

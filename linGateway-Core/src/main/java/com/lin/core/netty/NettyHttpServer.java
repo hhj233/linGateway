@@ -116,7 +116,9 @@ public class NettyHttpServer implements LifeCycle {
                                 // 处理http 100 continue请求
                                 new HttpServerExpectContinueHandler(),
                                 // 自定义处理器
-                                new NettyHttpServerHandler(nettyProcessor)
+                                new NettyHttpServerHandler(nettyProcessor),
+                                // 连接管理处理器
+                                new NettyServerConnectManagerHandler()
                         );
                     }
                 });

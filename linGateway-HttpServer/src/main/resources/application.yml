@@ -1,0 +1,10 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: httpServer
+lin:
+  gateway:
+    registerAddress: 127.0.0.1:8848
+    env: dev
+    gray: false

@@ -33,7 +33,7 @@ public class Config {
     // 客户端空闲超时时间
     private int httpPooledConnectionIdleTimeOut = 60 * 1000;
     private String defaultBufferType = "default";
-    private String parallelBufferType = "parallel";
+    private String parallelBufferType = "default";
     private int bufferSize = 1024 * 16;
     private int processThread = Runtime.getRuntime().availableProcessors();
     private String waitStrategy = "blocking";

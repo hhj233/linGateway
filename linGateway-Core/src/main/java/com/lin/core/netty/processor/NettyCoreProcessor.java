@@ -5,6 +5,7 @@ import com.lin.common.exception.BasicException;
 import com.lin.core.context.GatewayContext;
 import com.lin.core.context.HttpRequestWrapper;
 import com.lin.core.filter.FilterChainFactory;
+import com.lin.core.filter.GatewayFilterChain;
 import com.lin.core.filter.GatewayFilterChainFactory;
 import com.lin.core.helper.RequestHelper;
 import com.lin.core.helper.ResponseHelper;
@@ -40,7 +41,8 @@ public class NettyCoreProcessor implements NettyProcessor{
             GatewayContext gatewayContext = RequestHelper.doContext(request, ctx);
 
             // 在gatewayContext链上执行过滤器链逻辑
-            filterChainFactory.buildFilterChain(gatewayContext).doFilter(gatewayContext);
+            GatewayFilterChain chain = filterChainFactory.buildFilterChain(gatewayContext);
+            chain.doFilter(gatewayContext);
         } catch (BasicException e) {
             // 通过记录日志并发送适当的 HTTP 响应处理已知异常
             log.error("处理错误{} {}", e.getCode().getCode(), e.getCode().getMessage());

@@ -1,5 +1,6 @@
 package com.lin.registerCenter.nacosImpl;
 
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingFactory;
 import com.alibaba.nacos.api.naming.NamingMaintainFactory;
@@ -173,7 +174,9 @@ public class NacosRegisterCenter implements RegisterCenter {
                 try {
                     // 获取服务定义信息
                     Service service = namingMaintainService.queryService(serviceName, env);
-                    ServiceDefinition serviceDefinition = JsonUtil.parse(service.getMetadata().get(GatewayConst.META_DATA_KEY), ServiceDefinition.class);
+                    ServiceDefinition serviceDefinition = JSON.parseObject(
+                            service.getMetadata().get(GatewayConst.META_DATA_KEY), ServiceDefinition.class);
+
                     // 获得服务实例信息
                     List<Instance> allInstances = namingService.getAllInstances(service.getName(), env);
                     HashSet<ServiceInstance> set = new HashSet<>();

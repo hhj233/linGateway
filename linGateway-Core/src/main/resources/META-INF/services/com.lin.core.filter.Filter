@@ -1,1 +1,2 @@
 com.lin.core.filter.auth.AuthFilter
+com.lin.core.filter.router.RouterFilter

@@ -42,6 +42,7 @@ public class GatewayRequest implements IGatewayRequest{
     /**
      * 客户端ip 主要用于流控、黑白名单
      */
+    @Getter
     private final String clientIp;
     /**
      * 请求的地址

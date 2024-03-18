@@ -1,5 +1,6 @@
 package com.lin.configCenter.nacosImpl;
 
+import com.alibaba.fastjson2.JSON;
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
@@ -54,7 +55,7 @@ public class NacosConfigCenter implements ConfigCenter {
             // 初始化通知 DATA_ID是自己定义的 返回值是一个json
             String configJson = this.configService.getConfig(DATA_ID, env, 5000);
             log.info("config from nacos :{}", configJson);
-            Rules rules = JsonUtil.parse(configJson, Rules.class);
+            Rules rules = JSON.parseObject(configJson, Rules.class);
             List<Rule> ruleList = rules.getRules();
             // 调用监听器 参数为ruleList
             ruleChangeListener.onRuleChange(ruleList);

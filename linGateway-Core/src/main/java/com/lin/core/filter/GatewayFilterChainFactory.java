@@ -63,8 +63,8 @@ public class GatewayFilterChainFactory implements FilterChainFactory{
         GatewayFilterChain chain = new GatewayFilterChain();
         List<Filter> filters = new ArrayList<>();
         // 手动将某些过滤器链加入过滤器链中
-        filters.add(getFilterInfo(FilterConst.GRAY_FILTER_ID));
-        filters.add(getFilterInfo(FilterConst.MOCK_FILTER_ID));
+        /*filters.add(getFilterInfo(FilterConst.GRAY_FILTER_ID));
+        filters.add(getFilterInfo(FilterConst.MOCK_FILTER_ID));*/
         if (rule != null ){
             Set<Rule.FilterConfig> filterConfigs = rule.getFilterConfigs();
             Iterator<Rule.FilterConfig> iterator = filterConfigs.iterator();
@@ -85,6 +85,7 @@ public class GatewayFilterChainFactory implements FilterChainFactory{
         filters.add(getFilterInfo(FilterConst.ROUTER_FILTER_ID));
         // 排序
         filters.sort(Comparator.comparing(Filter::getOrder));
+        chain.addFilterList(filters);
         return chain;
     }
 

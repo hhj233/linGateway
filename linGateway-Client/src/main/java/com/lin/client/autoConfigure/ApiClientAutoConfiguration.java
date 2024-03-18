@@ -22,7 +22,7 @@ import javax.servlet.Servlet;
  */
 @Configuration
 @EnableConfigurationProperties(ApiProperties.class)
-@ConditionalOnProperty(prefix = "linGateway", name = {"registerAddress"})
+@ConditionalOnProperty(prefix = "lin.gateway", name = {"registerAddress"})
 public class ApiClientAutoConfiguration {
 
     @Autowired
