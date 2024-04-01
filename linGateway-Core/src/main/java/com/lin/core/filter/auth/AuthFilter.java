@@ -3,15 +3,18 @@ package com.lin.core.filter.auth;
 import com.lin.common.constant.FilterConst;
 import com.lin.common.enums.ResponseCode;
 import com.lin.common.exception.ResponseException;
+import com.lin.common.utils.TimeUtil;
 import com.lin.core.context.GatewayContext;
 import com.lin.core.filter.Filter;
 import com.lin.core.filter.FilterAspect;
 import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.DefaultClaims;
-import io.netty.handler.codec.http.cookie.Cookie;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Date;
 
 /**
  * @author linzj
@@ -57,7 +60,25 @@ public class AuthFilter implements Filter {
      * @return
      */
     public long parseUserId(String token) {
-        Jwt jwt = Jwts.parser().setSigningKey(SECRET_KEY).parse(token);
+        Jwt jwt = Jwts.parser().setSigningKey(SECRET_KEY.getBytes()).parse(token);
         return Long.parseLong(((DefaultClaims) jwt.getBody()).getSubject());
+    }
+
+    public static String createToken() {
+        return Jwts.builder()
+                .setSubject("123456")
+                .setIssuedAt(new Date())
+                .setIssuer("linGateway")
+                .setExpiration(new Date(TimeUtil.getCurrentTimeMills() + 30000*1000))
+                .signWith(SignatureAlgorithm.HS256, SECRET_KEY.getBytes())
+                .compact();
+    }
+
+    public static void main(String[] args) {
+        String token = createToken();
+        System.out.println(token);
+        Jwt jwt = Jwts.parser().setSigningKey(SECRET_KEY.getBytes()).parse(token);
+        System.out.println(jwt.getBody().toString());
+
     }
 }

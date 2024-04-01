@@ -2,17 +2,23 @@ package com.lin.core.netty;
 
 import com.lin.core.Config;
 import com.lin.core.LifeCycle;
+import com.lin.core.helper.AsyncHttpHelper;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.EventLoopGroup;
+import lombok.extern.slf4j.Slf4j;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClientConfig;
+
+import java.io.IOException;
+import java.util.Objects;
 
 /**
  * @author linzj
  * NettyHttpClient 类负责创建和管理基于Netty的异步HTTP客户端。
  * 它实现了LifeCycle接口，以提供初始化、启动和关闭客户端的方法。
  */
+@Slf4j
 public class NettyHttpClient implements LifeCycle {
     /**
      * 配置信息对象， 包含HTTP客户端的配置参数
@@ -68,11 +74,20 @@ public class NettyHttpClient implements LifeCycle {
 
     @Override
     public void start() {
-
+        // 使用AsyncHttpHelper单例模式初始化异步Http客户端
+        AsyncHttpHelper.getInstance().initialized(this.asyncHttpClient);
     }
 
     @Override
     public void shutdown() {
+        // 如果客户端不为空 则尝试关闭它
+        if (Objects.nonNull(this.asyncHttpClient)) {
+            try {
+                this.asyncHttpClient.close();
+            } catch (IOException e) {
+                log.error("nettyHttpClient shutdown error", e);
+            }
+        }
 
     }
 }
