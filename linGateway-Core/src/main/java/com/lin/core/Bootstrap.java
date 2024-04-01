@@ -4,6 +4,7 @@ import com.lin.common.config.DynamicConfigManager;
 import com.lin.common.config.ServiceDefinition;
 import com.lin.common.config.ServiceInstance;
 import com.lin.common.constant.BasicConst;
+import com.lin.common.utils.BannerUtil;
 import com.lin.common.utils.JsonUtil;
 import com.lin.common.utils.NetUtil;
 import com.lin.common.utils.TimeUtil;
@@ -20,6 +21,7 @@ import java.util.Set;
 public class Bootstrap {
 
     public static void main(String[] args) {
+        BannerUtil.printBanner(Bootstrap.class);
         // 加载核心网关配置
         Config config = ConfigLoader.getInstance().load(args);
         System.out.println(config.getPort());
