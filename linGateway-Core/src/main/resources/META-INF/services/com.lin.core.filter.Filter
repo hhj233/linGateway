@@ -1,2 +1,3 @@
 com.lin.core.filter.auth.AuthFilter
 com.lin.core.filter.router.RouterFilter
+com.lin.core.filter.loadBalance.LoadBalanceFilter

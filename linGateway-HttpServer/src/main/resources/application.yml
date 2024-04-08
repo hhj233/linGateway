@@ -1,5 +1,5 @@
 server:
-  port: 8011
+  port: ${random.int[8010,8020]}
 spring:
   application:
     name: httpServer

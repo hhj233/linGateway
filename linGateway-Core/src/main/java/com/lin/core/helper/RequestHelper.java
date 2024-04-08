@@ -42,7 +42,7 @@ public class RequestHelper {
         GatewayContext gatewayContext = new GatewayContext(serviceDefinition.getProtocol(), ctx, HttpUtil.isKeepAlive(httpRequest),
                 gatewayRequest, rule, 0);
 
-        gatewayContext.getRequest().setModifyHost("127.0.0.1:8011");
+        /*gatewayContext.getRequest().setModifyHost("127.0.0.1:8011");*/
 
         return gatewayContext;
     }
