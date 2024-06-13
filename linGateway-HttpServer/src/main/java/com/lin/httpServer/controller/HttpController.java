@@ -29,6 +29,13 @@ public class HttpController {
         return "pong gary = false";
     }
 
+    @ApiInvoker(path = "/http-server/pong")
+    @GetMapping("/http-server/pong")
+    public String pong() {
+        log.info("ping:{}", JsonUtil.toJsonString(apiProperties));
+        return "pong gary = false";
+    }
+
     public static void main(String[] args) {
         String a = "{\"uniqueId\":\"backend-http-server\",\"serviceId\":\"backend-http-server\",\"version\":\"1.0.0\",\"protocol\":\"http\",\"patternPath\":\"/http-server/**\",\"envType\":\"dev\",\"enable\":true,\"invokerMap\":{\"/http-server/ping\":{\"invokerPath\":\"/http-server/ping\",\"timeout\":5000}}}";
         ServiceDefinition parse = JsonUtil.parse(a, ServiceDefinition.class);

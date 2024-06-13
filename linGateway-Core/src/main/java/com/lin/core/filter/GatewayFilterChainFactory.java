@@ -65,6 +65,8 @@ public class GatewayFilterChainFactory implements FilterChainFactory{
         // 手动将某些过滤器链加入过滤器链中
         /*filters.add(getFilterInfo(FilterConst.GRAY_FILTER_ID));
         filters.add(getFilterInfo(FilterConst.MOCK_FILTER_ID));*/
+        filters.add(getFilterInfo(FilterConst.MONITOR_FILTER_ID));
+        filters.add(getFilterInfo(FilterConst.MONITOR_END_FILTER_ID));
         if (rule != null ){
             Set<Rule.FilterConfig> filterConfigs = rule.getFilterConfigs();
             Iterator<Rule.FilterConfig> iterator = filterConfigs.iterator();

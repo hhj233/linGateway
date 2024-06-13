@@ -1,3 +1,5 @@
 com.lin.core.filter.auth.AuthFilter
 com.lin.core.filter.router.RouterFilter
 com.lin.core.filter.loadBalance.LoadBalanceFilter
+com.lin.core.filter.monitor.MonitorFilter
+com.lin.core.filter.monitor.MonitorEndFilter
